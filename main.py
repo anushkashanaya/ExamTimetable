@@ -166,7 +166,6 @@ def main():
 
         
         
-        # Display the graph and timetable
         if exact is not None and valid_assignment(
             graph, exact, capacity
         ):
