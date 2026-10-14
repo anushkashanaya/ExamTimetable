@@ -111,8 +111,6 @@ def exact_solve(graph, capacity, time_limit=10):
 
     greedy = dsatur(graph, capacity)
     if greedy is None:
-        # A failed greedy result does not prove infeasibility.
-        # The exact search below will still try.
         upper = n
     else:
         upper = max(greedy.values())
@@ -144,7 +142,6 @@ def exact_solve(graph, capacity, time_limit=10):
                 colors[u] for u in graph[v] if u in colors
             }
 
-            # Try existing colors first, then one new color.
             max_color = min(limit, max(colors.values(), default=0) + 1)
 
             for color in range(1, max_color + 1):
