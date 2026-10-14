@@ -11,7 +11,6 @@ from graph_coloring import (
 
 
 def benchmark():
-    # Keep exact search sizes small initially.
     sizes = [5, 8, 10, 12, 15]
     density = 0.25
     capacity = 4
@@ -59,7 +58,6 @@ def benchmark():
             f"Optimality proven={exact_proven[-1]}"
         )
 
-    # Plot slot counts.
     plt.figure(figsize=(9, 5))
     plt.plot(sizes, greedy_slots, marker="o", label="Greedy DSatur")
     plt.plot(sizes, exact_slots, marker="s", label="Exact Backtracking")
@@ -71,7 +69,6 @@ def benchmark():
     plt.tight_layout()
     plt.savefig("slot_comparison.png", dpi=300)
 
-    # Plot runtime.
     plt.figure(figsize=(9, 5))
     plt.plot(sizes, greedy_times, marker="o", label="Greedy DSatur")
     plt.plot(sizes, exact_times, marker="s", label="Exact Backtracking")
