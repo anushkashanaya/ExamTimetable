@@ -14,7 +14,6 @@ def visualize_timetable(
         print("No timetable available to visualize.")
         return
 
-    # Use the same color for a course and its assigned slot.
     slot_colors = {}
     palette = plt.get_cmap("tab10")
 
@@ -26,7 +25,6 @@ def visualize_timetable(
         for course in graph
     ]
 
-    # Create a graph from the conflict adjacency list.
     G = nx.Graph()
     G.add_nodes_from(graph.keys())
 
@@ -42,7 +40,6 @@ def visualize_timetable(
         gridspec_kw={"width_ratios": [1.2, 1]}
     )
 
-    # Draw conflict graph.
     nx.draw_networkx(
         G,
         pos=positions,
@@ -62,7 +59,6 @@ def visualize_timetable(
     ax_graph.set_title("Conflict Graph (color = exam slot)")
     ax_graph.axis("off")
 
-    # Draw timetable grid.
     slots = sorted(set(coloring.values()))
     max_exams = max(
         (sum(1 for s in coloring.values() if s == slot)
